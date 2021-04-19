@@ -1,0 +1,8 @@
+<p>cart-list works!</p>
+<div ng-if="isCartEmpty()">empty cart</div>
+<div ng-if="!isCartEmpty()">not empty cart</div> 
+<!-- it is not working for some reason -->
+
+<li *ngFor="let product of products">
+    <app-product [product]="product"></app-product>
+</li>
