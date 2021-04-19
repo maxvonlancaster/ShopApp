@@ -8,11 +8,11 @@ import { Category } from '../../enums/category.enum';
 })
 export class FirstComponentComponent implements OnInit {
 
-  public Name: string;
-  public Description: string;
-  public Price: number;
-  public Category: Category;
-  public IsAvailable: boolean;
+  name: string;
+  description: string;
+  price: number;
+  category: Category;
+  isAvailable: boolean;
 
   constructor() { }
 

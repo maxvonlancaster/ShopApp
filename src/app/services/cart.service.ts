@@ -13,6 +13,6 @@ export class CartService {
   buyProduct(product: Product): void {
     product.IsOnCart = true;
     this.boughtProducts.push(product);
-    console.log("product bought");
+    console.log('product bought');
   }
 }

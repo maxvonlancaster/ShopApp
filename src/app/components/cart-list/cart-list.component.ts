@@ -9,27 +9,25 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartListComponent implements OnInit {
 
-  public products : Product[] = this.cartService.boughtProducts;
+  products: Product[];
 
-
-  constructor(public cartService: CartService) { 
-    
+  constructor(private cartService: CartService) {
   }
 
   ngOnInit(): void {
+    this.products = this.cartService.boughtProducts;
   }
 
-  getBoughtProducts() : Product[] {
-    var res = this.cartService.boughtProducts;
-    return res;
+  getBoughtProducts(): Product[] {
+    return this.cartService.boughtProducts;
   }
 
   isCartEmpty(): boolean {
-    var res = this.cartService.boughtProducts.length == 0;
+    const res = this.cartService.boughtProducts.length === 0;
     console.log(res);
     return res;
   }
 
-  
+
 
 }

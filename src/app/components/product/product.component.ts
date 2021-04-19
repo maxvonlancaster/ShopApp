@@ -14,8 +14,11 @@ export class ProductComponent implements OnInit {
   @Input()
   product: Product;
 
+  // не надо внедрять сюда зависимости.
+  // этот компонент не владелец данных и не должен их менять
+  // надо передавать аутпут родителю
   constructor(
-    public cartService: CartService, 
+    public cartService: CartService,
     public productService: ProductsService) {   }
 
 
@@ -28,9 +31,10 @@ export class ProductComponent implements OnInit {
   }
 
   deleteFromCart(): void{
-    var i = this.cartService.boughtProducts.indexOf(this.product);
+    // желетаельно такую логику выносить тоже в сервис
+    const i = this.cartService.boughtProducts.indexOf(this.product);
     this.cartService.boughtProducts.splice(i, 1);
-    
+
     this.product.IsAvailable = true;
     this.product.IsOnCart = false;
   }
