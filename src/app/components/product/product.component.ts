@@ -1,4 +1,5 @@
-import { Input } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product/product';
 import { CartService } from 'src/app/services/cart.service';
@@ -14,27 +15,23 @@ export class ProductComponent implements OnInit {
   @Input()
   product: Product;
 
-  // не надо внедрять сюда зависимости.
-  // этот компонент не владелец данных и не должен их менять
-  // надо передавать аутпут родителю
-  constructor(
-    public cartService: CartService,
-    public productService: ProductsService) {   }
+  @Output()
+  bought = new EventEmitter<Product>();
 
+  @Output()
+  deleted = new EventEmitter<Product>();
+
+  constructor() {   }
 
   ngOnInit(): void {
   }
 
   onBuy(): void {
-    this.product.IsAvailable = !this.product.IsAvailable;
-    this.cartService.buyProduct(this.product);
+    this.bought.emit(this.product);
   }
 
   deleteFromCart(): void{
-    // желетаельно такую логику выносить тоже в сервис
-    const i = this.cartService.boughtProducts.indexOf(this.product);
-    this.cartService.boughtProducts.splice(i, 1);
-
+    this.deleted.emit(this.product);
     this.product.IsAvailable = true;
     this.product.IsOnCart = false;
   }

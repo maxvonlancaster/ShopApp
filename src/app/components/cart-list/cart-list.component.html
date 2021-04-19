@@ -4,5 +4,5 @@
 <!-- it is not working for some reason -->
 
 <li *ngFor="let product of products">
-    <app-product [product]="product"></app-product>
+    <app-product [product]="product" (deleted)="deleted($event)"></app-product>
 </li>

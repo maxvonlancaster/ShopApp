@@ -13,6 +13,10 @@ export class CartService {
   buyProduct(product: Product): void {
     product.IsOnCart = true;
     this.boughtProducts.push(product);
-    console.log('product bought');
+  }
+
+  deleteProduct(product: Product): void {
+    const i = this.boughtProducts.indexOf(product);
+    this.boughtProducts.splice(i, 1);
   }
 }

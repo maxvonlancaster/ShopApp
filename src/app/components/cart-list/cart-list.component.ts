@@ -28,6 +28,8 @@ export class CartListComponent implements OnInit {
     return res;
   }
 
-
+  deleted(product: Product){
+    this.cartService.deleteProduct(product);
+  }
 
 }
