@@ -1,0 +1,4 @@
+<p>Products available: </p>
+<li *ngFor="let product of products">
+    <app-product [product]="product" (bought)="bought($event)" (deleted)="deleted($event)"></app-product>
+</li>

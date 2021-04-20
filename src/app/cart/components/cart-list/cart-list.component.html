@@ -1,0 +1,11 @@
+<p>Your cart: </p>
+<ng-template *ngIf="isCartEmpty(); then thenBlock else elseBlock"></ng-template>
+
+<ng-template #thenBlock >Your cart is empty!</ng-template>
+<ng-template #elseBlock>
+
+<li *ngFor="let product of products">
+    <app-product [product]="product" (deleted)="deleted($event)"></app-product>
+</li>
+</ng-template>
+

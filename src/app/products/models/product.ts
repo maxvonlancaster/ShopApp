@@ -1,4 +1,4 @@
-import { Category } from 'src/app/enums/category.enum';
+import { Category } from 'src/app/core/enums/category.enum';
 
 export class Product{
     Id: number;

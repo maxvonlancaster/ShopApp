@@ -1,9 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product/product';
-import { CartService } from 'src/app/services/cart.service';
-import { ProductsService } from 'src/app/services/products.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product',
@@ -32,8 +30,6 @@ export class ProductComponent implements OnInit {
 
   deleteFromCart(): void{
     this.deleted.emit(this.product);
-    this.product.IsAvailable = true;
-    this.product.IsOnCart = false;
   }
 
 }

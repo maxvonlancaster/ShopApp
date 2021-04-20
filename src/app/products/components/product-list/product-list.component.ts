@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product/product';
-import { CartService } from 'src/app/services/cart.service';
-import { ProductsService } from 'src/app/services/products.service';
+import { CartService } from 'src/app/cart/services/cart.service';
+import { Product } from '../../models/product';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -21,8 +21,10 @@ export class ProductListComponent implements OnInit {
   }
 
   bought(product: Product): void{
-    console.log('bought: ', product.Id);
-    product.IsAvailable = !product.IsAvailable;
     this.cartService.buyProduct(product);
+  }
+
+  deleted(product: Product): void{
+    this.cartService.deleteProduct(product);
   }
 }

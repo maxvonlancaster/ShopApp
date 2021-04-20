@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product/product';
-import { CartService } from 'src/app/services/cart.service';
+import { Product } from 'src/app/products/models/product';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -28,7 +28,7 @@ export class CartListComponent implements OnInit {
     return res;
   }
 
-  deleted(product: Product){
+  deleted(product: Product): void{
     this.cartService.deleteProduct(product);
   }
 
