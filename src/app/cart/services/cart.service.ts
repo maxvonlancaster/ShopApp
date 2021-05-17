@@ -11,13 +11,13 @@ export class CartService {
   constructor() { }
 
   buyProduct(product: Product): void {
-    // let prodCopy: Product = { 
-    //   Id: product.Id, 
-    //   Name: product.Name, 
-    //   Price: product.Price, 
-    //   Catgory: product.Catgory, 
-    //   Description: product.Description, 
-    //   IsAvailable: false, 
+    // let prodCopy: Product = {
+    //   Id: product.Id,
+    //   Name: product.Name,
+    //   Price: product.Price,
+    //   Catgory: product.Catgory,
+    //   Description: product.Description,
+    //   IsAvailable: false,
     //   IsOnCart: true};
     product.IsOnCart = true;
     product.IsAvailable = false;
@@ -29,5 +29,17 @@ export class CartService {
     product.IsAvailable = true;
     const i = this.boughtProducts.indexOf(this.boughtProducts.find(p => p.Id === product.Id));
     this.boughtProducts.splice(i, 1);
+  }
+
+  totalPrice(): number{
+    let price = 0;
+    for (const p of this.boughtProducts){
+      price += p.Price;
+    }
+    return price;
+  }
+
+  totalBought(): number{
+    return this.boughtProducts.length;
   }
 }

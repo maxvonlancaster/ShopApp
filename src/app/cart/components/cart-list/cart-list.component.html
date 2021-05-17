@@ -3,9 +3,9 @@
 
 <ng-template #thenBlock >Your cart is empty!</ng-template>
 <ng-template #elseBlock>
-
+    <p>Total: {{total()}}; Price:{{totalPrice()}} </p>
 <li *ngFor="let product of products">
-    <app-product [product]="product" (deleted)="deleted($event)"></app-product>
+    <app-cart [product]="product" (deleted)="deleted($event)"></app-cart>
 </li>
 </ng-template>
 

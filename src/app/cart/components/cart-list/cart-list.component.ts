@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/products/models/product';
 import { CartService } from '../../services/cart.service';
 
@@ -30,6 +30,14 @@ export class CartListComponent implements OnInit {
 
   deleted(product: Product): void{
     this.cartService.deleteProduct(product);
+  }
+
+  totalPrice(): number{
+    return this.cartService.totalPrice();
+  }
+
+  total(): number{
+    return this.cartService.totalBought();
   }
 
 }

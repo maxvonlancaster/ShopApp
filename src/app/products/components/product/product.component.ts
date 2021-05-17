@@ -24,6 +24,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   onBuy(): void {
     this.bought.emit(this.product);
   }

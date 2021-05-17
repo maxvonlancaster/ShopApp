@@ -3,7 +3,7 @@
         <span>{{product.Id}} </span>
         <span>{{product.Name}} </span>
         <span>{{product.Price}}$ </span>
-    <button [hidden]="!product.IsAvailable" (click)="onBuy()"> Buy this product </button>
-    <button [hidden]="!product.IsOnCart" (click)="deleteFromCart()"> Delete from cart </button>
+    <button [disabled]="!product.IsAvailable" (click)="onBuy()"> Buy this product </button>
+    <button [disabled]="!product.IsOnCart" (click)="deleteFromCart()"> Delete from cart </button>
     </div>
 </div>
